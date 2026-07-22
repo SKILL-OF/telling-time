@@ -1,0 +1,18 @@
+{
+  "description": "Inject a fresh wall-clock reading at every user-turn boundary.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$PLUGIN_ROOT/hooks/current-time.mjs\"",
+            "commandWindows": "node \"%PLUGIN_ROOT%\\hooks\\current-time.mjs\"",
+            "timeout": 5,
+            "statusMessage": "Updating live clock"
+          }
+        ]
+      }
+    ]
+  }
+}

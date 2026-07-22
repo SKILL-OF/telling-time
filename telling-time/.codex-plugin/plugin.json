@@ -1,0 +1,19 @@
+{
+  "name": "telling-time",
+  "version": "0.1.0",
+  "description": "Inject a live wall-clock timestamp into Codex turns.",
+  "author": {
+    "name": "SKILL-OF"
+  },
+  "repository": "https://github.com/SKILL-OF/telling-time",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Telling Time",
+    "shortDescription": "Add live time to each Codex turn.",
+    "longDescription": "Adds a trusted UserPromptSubmit hook that supplies the current UTC and Pacific time without a model tool call.",
+    "developerName": "SKILL-OF",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Use the live clock context when timing matters."
+  }
+}
