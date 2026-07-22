@@ -1,0 +1,17 @@
+{
+  "name": "skill-of",
+  "plugins": [
+    {
+      "name": "telling-time",
+      "source": {
+        "source": "local",
+        "path": "./plugins/telling-time"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
