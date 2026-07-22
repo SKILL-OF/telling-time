@@ -5,12 +5,18 @@
 process.stdin.resume();
 
 const now = new Date();
-const pacific = new Intl.DateTimeFormat("en-US", {
+const pacificDate = new Intl.DateTimeFormat("en-US", {
   timeZone: "America/Los_Angeles",
   dateStyle: "full",
   timeStyle: "medium",
-  timeZoneName: "short",
 }).format(now);
+const pacificZone = new Intl.DateTimeFormat("en-US", {
+  timeZone: "America/Los_Angeles",
+  timeZoneName: "short",
+})
+  .formatToParts(now)
+  .find((part) => part.type === "timeZoneName")?.value ?? "Pacific";
+const pacific = `${pacificDate} ${pacificZone}`;
 
 process.stdout.write(`${JSON.stringify({
   continue: true,
