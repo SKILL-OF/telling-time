@@ -7,6 +7,7 @@
   },
   "repository": "https://github.com/SKILL-OF/telling-time",
   "skills": "./skills/",
+  "hooks": "./hooks/hooks.json",
   "interface": {
     "displayName": "Telling Time",
     "shortDescription": "Add live time to each Codex turn.",
