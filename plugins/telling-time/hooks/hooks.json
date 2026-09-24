@@ -1,5 +1,5 @@
 {
-  "description": "Inject a fresh wall-clock reading at every user-turn boundary.",
+  "description": "Inject a fresh wall-clock reading at every user-turn boundary, and a real wall-clock + duration line around every individual tool call.",
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -10,6 +10,34 @@
             "commandWindows": "node \"%PLUGIN_ROOT%\\hooks\\current-time.mjs\"",
             "timeout": 5,
             "statusMessage": "Updating live clock"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$PLUGIN_ROOT/hooks/tool-clock-pre.mjs\"",
+            "commandWindows": "node \"%PLUGIN_ROOT%\\hooks\\tool-clock-pre.mjs\"",
+            "timeout": 5,
+            "statusMessage": "Recording tool start time"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$PLUGIN_ROOT/hooks/tool-clock-post.mjs\"",
+            "commandWindows": "node \"%PLUGIN_ROOT%\\hooks\\tool-clock-post.mjs\"",
+            "timeout": 5,
+            "statusMessage": "Reporting tool duration"
           }
         ]
       }
